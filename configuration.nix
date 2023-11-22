@@ -109,8 +109,9 @@
     #  thunderbird
     ];
   };
-  # What does converting to allowed-user do and is this the way to do it?
-  nix.settings.allowed-users = "daniel";
+
+  #/ Does my user really need access to the nix daemon?
+  nix.settings.allowed-users = [ "daniel" ];
 
   # Enable automatic login for the user.
   services.xserver.displayManager.autoLogin.enable = true;
