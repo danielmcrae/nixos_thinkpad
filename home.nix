@@ -1,5 +1,13 @@
 { config, pkgs, ... }:
-
+let
+  myAliases = {
+      ll = "ls -la";
+      ".." = "cd ..";
+      update = "sudo nix flake update ~/.dotfiles/";
+      rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles/";
+      home = "home-manager switch --flake ~/.dotfiles/";
+    };
+in
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -65,15 +73,19 @@
     # EDITOR = "emacs";
   };
 
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      ll = "ls -la";
-      ".." = "cd ..";
-      rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles/";
-    };
-  };
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+
+
+
+  programs.bash = {
+    enable = true;
+    shellAliases = myAliases;
+  };
+
+  programs.zsh = {
+    enable = true;
+    shellAliases = myAliases;
+  };
 }

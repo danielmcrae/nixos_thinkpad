@@ -14,6 +14,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  environment.shells = with pkgs; [ bash zsh fish ];
+  users.defaultUserShell = pkgs.bash;
+  programs.bash.enable = true;
+
   networking.hostName = "nixPad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
