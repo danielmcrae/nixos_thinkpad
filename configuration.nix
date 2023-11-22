@@ -16,7 +16,7 @@
 
   environment.shells = with pkgs; [ bash zsh fish ];
   users.defaultUserShell = pkgs.bash;
-  programs.bash.enable = true;
+  # programs.bash.enable = true; # not needed for bash
 
   networking.hostName = "nixPad"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
