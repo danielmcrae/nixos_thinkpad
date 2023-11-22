@@ -65,6 +65,15 @@
     # EDITOR = "emacs";
   };
 
+  programs.bash = {
+    enable = true;
+    shellAliases = {
+      ll = "ls -la";
+      ".." = "cd ..";
+      rebuild = "sudo nixos-rebuild switch --flake ~/.dotfiles/";
+    };
+  };
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 }
