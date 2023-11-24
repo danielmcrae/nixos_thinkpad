@@ -153,8 +153,9 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
+
   nixpkgs.config.permittedInsecurePackages = [
-#    "figma-linux-0.10.0"
+  #  "figma-linux-0.10.0"
   #  "electron-24.8.6"
   ];
 

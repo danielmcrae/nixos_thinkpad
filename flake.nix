@@ -16,15 +16,13 @@
     in {
       nixosConfigurations = {
         nixPad = lib.nixosSystem {
-          system = "x86_64-linux";
-            # inharit system; not working
+          system = "${system}";   # inharit system; not working?
           modules = [ ./configuration.nix ];
         };
       };
       homeConfigurations = {
         daniel = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages."x86_64-linux";
-          # inharit pkgs; not working
+          pkgs = nixpkgs.legacyPackages.${system};
           modules = [ ./home.nix ];
         };
       };
