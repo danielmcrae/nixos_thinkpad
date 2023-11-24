@@ -3,8 +3,8 @@
   # Commands: sudo nixos-rebuild switch --flake .
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/23.05"; # nixos-unstable
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable"; # nixos-unstable  23.05
+    home-manager.url = "github:nix-community/home-manager/release-23.05"; # release-23.05
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 

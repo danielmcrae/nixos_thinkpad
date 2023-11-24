@@ -131,7 +131,7 @@
     librewolf
     lxqt.lxqt-policykit
     vscode
-    figma-linux
+    #figma-linux
     obsidian
     drawio
     discord
@@ -154,7 +154,8 @@
   #  wget
   ];
   nixpkgs.config.permittedInsecurePackages = [
-    "figma-linux-0.10.0"
+#    "figma-linux-0.10.0"
+  #  "electron-24.8.6"
   ];
 
 
@@ -184,6 +185,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.05"; # Did you read the comment?
+  system.stateVersion = "nixos-unstable"; # Did you read the comment?
 
 }
