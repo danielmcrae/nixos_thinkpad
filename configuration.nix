@@ -110,6 +110,12 @@
     packages = with pkgs; [
       firefox
       kate
+      kmon
+      htop
+      typespeed
+     # speedpad
+      wpm
+      bottom #btm
     #  thunderbird
     ];
   };
@@ -127,6 +133,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    direnv
     brave
     librewolf
     lxqt.lxqt-policykit

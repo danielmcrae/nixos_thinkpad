@@ -80,6 +80,8 @@ in
 
   # My Customizations
 
+  programs.direnv.enable = true;
+
   programs.bash = {
     enable = true;
     shellAliases = myAliases;
