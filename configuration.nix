@@ -54,9 +54,9 @@
   services.xserver.desktopManager.plasma5.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -64,7 +64,7 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
   services.avahi.enable = true;
-  services.avahi.nssmdns = true;
+  services.avahi.nssmdns4 = true;
   services.avahi.openFirewall = true;
 
   services.gvfs.enable = true;
