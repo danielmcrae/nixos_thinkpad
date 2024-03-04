@@ -156,6 +156,8 @@
     gparted
     nodejs
     nodePackages.create-react-app
+    distrobox
+    ollama
 
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
