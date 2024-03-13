@@ -23,7 +23,7 @@ in
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.05"; #unstable # Please read the comment before changing.
+  home.stateVersion = "23.05"; #originally "23.05" #unstable # Please read the comment before changing.
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -80,23 +80,24 @@ in
 
   # My Customizations
 
-  programs.direnv.enable = true;
+#  programs.direnv.enable = true;
 
   programs.bash = {
     enable = true;
     shellAliases = myAliases;
+    enableCompletion = true;
   };
 
-  programs.zsh = {
-    enable = true;
-    shellAliases = myAliases;
-  };
+#  programs.zsh = {
+#    enable = true;
+#    shellAliases = myAliases;
+#  };
 
   # Kitty config not working!
-  programs.kitty = {
-    theme = "box" ; # "ENCOM" "Space Gray Eighties"
-  };
-
+#  programs.kitty = {
+#    enable = true;
+#    theme = "Space Gray Eighties" ; # "ENCOM" "Space Gray Eighties" box
+#  };
 
 
 }

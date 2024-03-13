@@ -159,6 +159,11 @@
     distrobox
     ollama
     neofetch
+    yt-dlp
+    vim
+    spacevim
+    vimPlugins.SpaceVim
+    helix
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   ];
@@ -168,10 +173,9 @@
   #  "electron-24.8.6"
   ];
 
-  # these are for Invoke AI
-  nix.settings.trusted-substituters = ["https://ai.cachix.org"];
-  nix.settings.trusted-public-keys = ["ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="];
 
+  # for bash auto completion
+  environment.pathsToLink = [ "/share/bash-completion" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
