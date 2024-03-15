@@ -85,7 +85,7 @@ in
   programs.bash = {
     enable = true;
     shellAliases = myAliases;
-    enableCompletion = true;
+    enableCompletion = true; # not working
   };
 
 #  programs.zsh = {
@@ -98,6 +98,12 @@ in
 #    enable = true;
 #    theme = "Space Gray Eighties" ; # "ENCOM" "Space Gray Eighties" box
 #  };
+
+  programs.neovim = {
+    enable = true;
+    
+
+  };
 
 
 }
