@@ -120,6 +120,9 @@
     ];
   };
 
+  programs.hyprland.enable = true;
+  programs.plasma.discover.enable = true;
+
   #/ Does my user really need access to the nix daemon?
   nix.settings.allowed-users = [ "daniel" ];
 
@@ -157,6 +160,8 @@
     nodejs
     nodePackages.create-react-app
     distrobox
+    virtualbox
+    vagrant
     ollama
     neofetch
     yt-dlp
@@ -166,7 +171,9 @@
     helix
     libreoffice
     super-productivity
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    direnv
+    
+    
   #  wget
   ];
 
@@ -175,7 +182,7 @@
   #  "electron-24.8.6"
   ];
 
-
+  programs.bash.interactiveShellInit = ''eval "$(direnv hook bash)"'';
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

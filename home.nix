@@ -80,12 +80,13 @@ in
 
   # My Customizations
 
-#  programs.direnv.enable = true;
+  programs.direnv.enable = true;
+
 
   programs.bash = {
     enable = true;
     shellAliases = myAliases;
-    enableCompletion = true; # not working
+#    enableCompletion = true; # not working
   };
 
 #  programs.zsh = {
