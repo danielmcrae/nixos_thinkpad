@@ -106,7 +106,7 @@
   users.users.daniel = {
     isNormalUser = true;
     description = "Daniel";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
     packages = with pkgs; [
       firefox
       kate
@@ -121,7 +121,8 @@
   };
 
   programs.hyprland.enable = true;
-  programs.plasma.discover.enable = true;
+
+ 
 
   #/ Does my user really need access to the nix daemon?
   nix.settings.allowed-users = [ "daniel" ];
@@ -137,8 +138,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     direnv
-    brave
-    librewolf
+    brave librewolf chromium
     lxqt.lxqt-policykit
     vscode
     #figma-linux
@@ -148,7 +148,7 @@
     ghostwriter
     keepassxc
     vlc
-    neovim
+    neovim spacevim vim vimPlugins.SpaceVim
     kitty
     ranger
     ghostwriter
@@ -159,28 +159,97 @@
     gparted
     nodejs
     nodePackages.create-react-app
-    distrobox
-    virtualbox
     vagrant
     ollama
     neofetch
     yt-dlp
-    vim
-    spacevim
-    vimPlugins.SpaceVim
     helix
     libreoffice
     super-productivity
     direnv
-    
-    
-  #  wget
+    gparted
+    # for dicover
+    #libsForQt5.discover
+    #libsForQt5.packagekit-qt
+    #libportal-qt5
+    virt-manager
+    virt-viewer
+    spice spice-gtk
+    spice-protocol
+    win-virtio
+    win-spice
+    gnome.adwaita-icon-theme
+    xfce.thunar
   ];
 
   nixpkgs.config.permittedInsecurePackages = [
   #  "figma-linux-0.10.0"
   #  "electron-24.8.6"
   ];
+
+
+
+
+
+
+
+
+
+# Virtual Machine config... How can I move to its own file?
+ # Enable dconf (System Management Tool)
+  programs.dconf.enable = true;
+
+  # Add user to libvirtd group
+  #users.users.daniel.extraGroups = [ "libvirtd" ];    #  users.users.$user.extraGroups = [ "libvirtd" ];
+
+  # Install necessary packages
+#  environment.systemPackages = with pkgs; [
+#    virt-manager
+#    virt-viewer
+#    spice spice-gtk
+#    spice-protocol
+#    win-virtio
+#    win-spice
+#    gnome.adwaita-icon-theme
+#  ];
+
+  # Manage the virtualisation services
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      qemu = {
+        swtpm.enable = true;
+        ovmf.enable = true;
+        ovmf.packages = [ pkgs.OVMFFull.fd ];
+      };
+    };
+    spiceUSBRedirection.enable = true;
+  };
+  services.spice-vdagentd.enable = true;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  # for Discover
+  #services.flatpk.enable = true;
+  #services.packagekit.enable = true;
+  #services.fwupd.enable = true;
 
   programs.bash.interactiveShellInit = ''eval "$(direnv hook bash)"'';
 

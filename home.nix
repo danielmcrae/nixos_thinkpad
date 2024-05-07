@@ -83,6 +83,7 @@ in
   programs.direnv.enable = true;
 
 
+
   programs.bash = {
     enable = true;
     shellAliases = myAliases;
